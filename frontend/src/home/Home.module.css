@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .darkMode {
+    background-color: #121212;
+    color: white;
+  }
+  
+  .lightMode {
+    background-color: white;
+    color: black;
+  }
+  
+  .app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: transparent;
+    color: white;
+    position: sticky;
+    top: 0;
+    transition: background-color 0.3s ease;
+  }
+  
+  .darkMode .navbar {
+    background-color: transparent;
+  }
+  
+  .lightMode .navbar {
+    background-color: transparent;
+    color: black;
+  }
+  
+  .navLinks {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navLinks li {
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+  
+  .navLinks li:hover {
+    color: #ff4081;
+  }
+  
+  .modeToggle {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .lightMode .modeToggle {
+    color: black;
+  }
+  
+  .darkMode .modeToggle {
+    color: white;
+  }
+  
+  .modeToggle:hover {
+    color: #ff4081;
+  }
+  
+  .content {
+    text-align: center;
+    padding: 5rem 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: 1.5rem;
+  }
+  
