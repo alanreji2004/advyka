@@ -1,98 +1,185 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    transition: background-color 0.3s, color 0.3s;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.darkMode {
+  background-color: #121212;
+  color: white;
+  overflow: hidden;
+}
+
+.lightMode {
+  background-color: white;
+  color: black;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  color: white;
+  position: sticky;
+  top: 0;
+  transition: background-color 0.3s ease;
+}
+
+.darkMode .navbar {
+  background-color: transparent;
+}
+
+.lightMode .navbar {
+  background-color: transparent;
+  color: black;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navLinks li {
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.navLinks li:hover {
+  color: #ff4081;
+}
+
+.modeToggle {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.lightMode .modeToggle {
+  color: black;
+}
+
+.darkMode .modeToggle {
+  color: white;
+}
+
+.modeToggle:hover {
+  color: #ff4081;
+}
+
+.content {
+  text-align: center;
+  padding: 5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+/* Moving Stars */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.stars::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: -1;
+}
+
+.stars::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0.8;
+  animation: starMovement 50s linear infinite;
+}
+
+@keyframes starMovement {
+  0% {
+    transform: translateY(0) scale(1);
   }
-  
-  .darkMode {
-    background-color: #121212;
-    color: white;
+  100% {
+    transform: translateY(-100vh) scale(1);
   }
-  
-  .lightMode {
-    background-color: white;
-    color: black;
+}
+
+/* Shooting Stars */
+.shootingStars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.shootingStars::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(white, transparent);
+  transform: rotate(45deg);
+  animation: shootingStar 2s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+@keyframes shootingStar {
+  0% {
+      transform: translate(-50%, -50%) rotate(45deg);
+      opacity: 0.8;
   }
-  
-  .app {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  100% {
+      transform: translate(200%, 200%) rotate(45deg);
+      opacity: 0;
   }
-  
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: transparent;
-    color: white;
-    position: sticky;
-    top: 0;
-    transition: background-color 0.3s ease;
-  }
-  
-  .darkMode .navbar {
-    background-color: transparent;
-  }
-  
-  .lightMode .navbar {
-    background-color: transparent;
-    color: black;
-  }
-  
-  .navLinks {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .navLinks li {
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
-  }
-  
-  .navLinks li:hover {
-    color: #ff4081;
-  }
-  
-  .modeToggle {
-    background: transparent;
-    border: none;
-    font-size: 1.5rem;
-    color: white;
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-  
-  .lightMode .modeToggle {
-    color: black;
-  }
-  
-  .darkMode .modeToggle {
-    color: white;
-  }
-  
-  .modeToggle:hover {
-    color: #ff4081;
-  }
-  
-  .content {
-    text-align: center;
-    padding: 5rem 1rem;
-    transition: color 0.3s ease;
-  }
-  
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-  
-  p {
-    font-size: 1.5rem;
-  }
-  
+}
